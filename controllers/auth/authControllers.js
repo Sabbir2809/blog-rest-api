@@ -1,6 +1,7 @@
+// Dependencies
 const bcrypt = require('bcrypt');
-const userModel = require('../../models/userModel');
 const jwt = require('jsonwebtoken');
+const userModel = require('../../models/userModel');
 
 // signup
 exports.signupControllers = async (req, res) => {
@@ -32,15 +33,13 @@ exports.loginControllers = async (req, res) => {
     const user = await userModel.findOne({ username });
 
     if (!user) {
-      return res.status(401).json({ message: 'Unauthorized User!' });
+      return res.status(401).json({ message: 'User Unauthorized!' });
     }
-
     const validated = await bcrypt.compare(password, user.password);
 
     if (!validated) {
       return res.status(406).json({ message: 'Password dose not Match!' });
     }
-
     const token = await jwt.sign({ username, _id: user._id }, process.env.PRIVATE_KEY, { expiresIn: '2h' });
 
     res.status(200).json({ message: 'Login Successfully✌️', token });
