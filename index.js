@@ -15,7 +15,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 
 // PORT
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is Running at http://localhost:${PORT}`);
   // mongodb connection

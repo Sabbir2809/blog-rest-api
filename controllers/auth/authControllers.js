@@ -21,7 +21,6 @@ exports.signupControllers = async (req, res) => {
     res.status(201).json({ message: `Hello, ${name}! Your Account has been Created.`, user });
   } catch (error) {
     res.status(201).json({ message: 'Something went Wrong!' });
-    console.error(error);
   }
 };
 
@@ -45,6 +44,5 @@ exports.loginControllers = async (req, res) => {
     res.status(200).json({ message: 'Login Successfully✌️', token });
   } catch (error) {
     res.status(404).json({ message: 'Not Found!' });
-    console.error(error);
   }
 };
