@@ -9,19 +9,16 @@ exports.authMiddleware = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({ message: 'Access Not Allow!' });
     }
-
     const sToken = token.split(' ')[1];
-
     const decoded = jwt.verify(sToken, process.env.PRIVATE_KEY);
     const id = decoded.id;
 
     const user = await userModel.findById(id);
-
     req.user = user;
 
     next();
 
-    console.log(token);
+    // console.log(token);
   } catch (error) {
     res.status(401).json({ message: 'Authenticate Failed!' });
   }

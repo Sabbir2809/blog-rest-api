@@ -7,10 +7,10 @@ const userRouter = require('./routes/userRoute');
 
 const app = express();
 
-// Middleware
+// Application Level: Middleware
 app.use(express.json());
 
-// Routes
+// Router Level: Middleware
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 
