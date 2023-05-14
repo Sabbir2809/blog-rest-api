@@ -5,12 +5,13 @@ const connectDB = require('./config/connectDB');
 const authRouter = require('./routes/auth/authRoute');
 const userRouter = require('./routes/userRoute');
 
+// app instance
 const app = express();
 
-// Application Level: Middleware
+// Middleware: Application Level
 app.use(express.json());
 
-// Router Level: Middleware
+// Middleware: Router Level
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 

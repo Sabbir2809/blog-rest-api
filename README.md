@@ -14,3 +14,5 @@
 1. Express user login system
 1. Get All users from the MongoDB database
 1. Create an auth middleware and implement
+1. Update user
+1. Delete user
