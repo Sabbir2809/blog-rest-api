@@ -1,4 +1,4 @@
-const postModel = require('../../models/postModel');
+const postModel = require('../models/postModel');
 
 // create post
 exports.createPost = async (req, res) => {
@@ -32,6 +32,18 @@ exports.getAllPost = async (req, res) => {
     res.status(200).json(posts);
   } catch (error) {
     res.status(401).json({ message: 'Something Went Wrong', error });
+  }
+};
+
+// get single post
+exports.getSinglePost = async (req, res) => {
+  const postId = req.params.postId;
+
+  try {
+    const post = await postModel.findById(postId);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(400).json({ message: 'Something went Wrong!', error });
   }
 };
 

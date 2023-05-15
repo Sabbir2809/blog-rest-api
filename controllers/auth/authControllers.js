@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const userModel = require('../../models/userModel');
 
 // :::::::::: signup ::::::::::
-exports.signupControllers = async (req, res) => {
+exports.signup = async (req, res) => {
   try {
     req.body.password = await bcrypt.hash(req.body.password, 11);
 
@@ -25,7 +25,7 @@ exports.signupControllers = async (req, res) => {
 };
 
 // :::::::::: login ::::::::::
-exports.loginControllers = async (req, res) => {
+exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
 

@@ -4,7 +4,8 @@ require('dotenv').config();
 const connectDB = require('./config/connectDB');
 const authRouter = require('./routes/auth/authRoute');
 const userRouter = require('./routes/userRoute');
-const postRouter = require('./routes/auth/postRoute');
+const postRouter = require('./routes/postRoute');
+const categoryRouter = require('./routes/categoryRoute');
 
 // app instance
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/posts', postRouter);
+app.use('/api/category', categoryRouter);
 
 // PORT
 const PORT = process.env.PORT || 8080;
