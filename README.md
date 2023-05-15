@@ -16,3 +16,5 @@
 1. Create an auth middleware and implement
 1. Update user
 1. Delete user
+1. Create Post
+1. Get all post
