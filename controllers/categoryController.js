@@ -12,3 +12,14 @@ exports.createCategory = async (req, res) => {
     res.status(401).json({ message: 'Something Went Wrong!', error });
   }
 };
+
+// get category
+exports.getCategory = async (req, res) => {
+  try {
+    const category = await categoryModel.find();
+
+    res.status(200).json(category);
+  } catch (error) {
+    res.status(401).json({ message: 'Something Went Wrong!', error });
+  }
+};
