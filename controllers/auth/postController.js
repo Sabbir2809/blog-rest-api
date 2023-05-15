@@ -49,3 +49,19 @@ exports.updatePost = async (req, res) => {
     res.status(401).json({ message: 'You can update only your post!', error });
   }
 };
+
+// delete post
+exports.deletePost = async (req, res) => {
+  const postId = req.params.postId;
+
+  try {
+    const post = await postModel.findById(postId);
+    if (!post) {
+      return res.status(400).json({ message: 'Post Not Found' });
+    }
+    await postModel.findByIdAndDelete(post);
+    res.status(200).json({ message: 'Post Deleted Successfully.' });
+  } catch (error) {
+    res.status(401).json({ message: 'You can delete only your Post', error });
+  }
+};
